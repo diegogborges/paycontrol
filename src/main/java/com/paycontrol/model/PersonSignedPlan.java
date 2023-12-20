@@ -25,6 +25,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name = "person_signed_plan")
@@ -62,6 +63,7 @@ public class PersonSignedPlan implements Serializable {
   private LocalDateTime createdAt;
 
   @Column(name = "updated_at")
+  @UpdateTimestamp
   private LocalDateTime updatedAt;
 
   @Column(name = "sequence")
@@ -69,9 +71,4 @@ public class PersonSignedPlan implements Serializable {
 
   @Column(name = "initial_date")
   private LocalDateTime initialDate;
-
-  @PrePersist
-  private void beforePersist() {
-    this.createdAt = LocalDateTime.now();
-  }
 }

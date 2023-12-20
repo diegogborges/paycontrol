@@ -16,6 +16,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @AllArgsConstructor
 @Builder
@@ -52,6 +53,7 @@ public class Person implements Serializable {
   private LocalDateTime createdAt;
 
   @Column(name = "updated_at")
+  @UpdateTimestamp
   private LocalDateTime updatedAt;
 
 }

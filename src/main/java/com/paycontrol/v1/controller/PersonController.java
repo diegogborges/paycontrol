@@ -5,6 +5,8 @@ import com.paycontrol.service.PersonService;
 
 import javax.validation.Valid;
 
+import com.paycontrol.v1.validator.PersonValidation;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,18 +19,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/v1/persons")
 public class PersonController {
 
-  private PersonService personService;
-  private PersonValidation personValidation;
-
-  @Autowired
-  public PersonController(PersonService personService, PersonValidation personValidation) {
-    this.personService = personService;
-    this.personValidation = personValidation;
-  }
+  private final PersonService personService;
+  private final PersonValidation personValidation;
 
   @GetMapping("/{personId}")
   public ResponseEntity<Person> findById(@PathVariable Long personId) {

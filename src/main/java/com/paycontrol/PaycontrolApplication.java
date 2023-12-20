@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class PaycontrolApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PaycontrolApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(PaycontrolApplication.class, args);
+    }
 }
